@@ -24,19 +24,19 @@ pipeline {
             }
         }
 
-        // stage('Push Docker Image onto Hub'){
-        //     steps{
-        //         script{
-        //              withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpassword')]) {
-        //                 sh '''
-        //                     echo $dockerhubpassword | docker login -u fitoni --password-stdin https://index.docker.io/v1/
-        //                     docker push fitoni/mrdevops-gitops:${VERSION}
-        //                     docker rmi fitoni/mrdevops-gitops:${VERSION}
-        //                 '''                        
-        //             } 
-        //         }
-        //     }
-        // }
+        stage('Push Docker Image onto Hub'){
+            steps{
+                script{
+                     withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpassword')]) {
+                        sh '''
+                            echo $dockerhubpassword | docker login -u fitoni --password-stdin https://index.docker.io/v1/
+                            docker push fitoni/gitops:${VERSION}
+                            docker rmi fitoni/gitops:${VERSION}
+                        '''                        
+                    } 
+                }
+            }
+        }
 
         // stage('Build downstream job - (CD Part)'){
         //     steps{
