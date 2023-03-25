@@ -8,14 +8,6 @@ pipeline {
     }
     
     stages{
-        stage('Cleanup Workspace'){
-            steps{
-                script{
-                    cleanWs()
-                }
-            }
-        }
-
         stage('Build with Maven'){
             steps{
                 script{
