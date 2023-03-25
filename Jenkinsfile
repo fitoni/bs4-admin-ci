@@ -16,13 +16,13 @@ pipeline {
             }
         }
 
-        // stage('Build Docker Image'){
-        //     steps{
-        //         script{
-        //             sh 'docker build -t fitoni/mrdevops-gitops:${VERSION} .'                    
-        //         }
-        //     }
-        // }
+        stage('Build Docker Image'){
+            steps{
+                script{
+                    sh 'docker build -t fitoni/gitops:${VERSION} .'                    
+                }
+            }
+        }
 
         // stage('Push Docker Image onto Hub'){
         //     steps{
