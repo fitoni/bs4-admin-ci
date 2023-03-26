@@ -27,7 +27,7 @@ pipeline {
         stage('Push Docker Image onto Hub'){
             steps{
                 script{
-                     withCredentials([usernamePassword(credentialsId: 'jenkinsLoginToGithub', passwordVariable: 'DH_PASSWORD', usernameVariable: 'DH_USERNAME')]) 
+                     withCredentials([usernamePassword(credentialsId: 'jenkinsLoginToDockerHub', passwordVariable: 'DH_PASSWORD', usernameVariable: 'DH_USERNAME')]) { 
                         sh '''
                             echo $DH_PASSWORD | docker login -u $DH_USERNAME --password-stdin https://index.docker.io/v1/
                             docker push fitoni/gitops:${VERSION}
