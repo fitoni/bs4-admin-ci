@@ -38,12 +38,12 @@ pipeline {
             }
         }
 
-        // stage('Build downstream job - (CD Part)'){
-        //     steps{
-        //         script{                      
-        //             build(job: 'mrdevops-cd', parameters: [string(name: 'BUILDNUMBER', value: "${VERSION}")])                               
-        //         }
-        //     }
-        // }
+        stage('Build downstream job - (the CD Part)'){
+            steps{
+                script{                      
+                    build(job: 'bs4-admin-cd', parameters: [string(name: 'BUILDNUMBER', value: "${VERSION}")])                               
+                }
+            }
+        }
     }
 }
