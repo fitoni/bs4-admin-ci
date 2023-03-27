@@ -41,7 +41,8 @@ pipeline {
         stage('Build downstream job - (the CD Part)'){
             steps{
                 script{                      
-                    build(job: 'bs4-admin-cd', parameters: [string(name: 'BUILDNUMBER', value: "${VERSION}")])                               
+                    build(job: 'bs4-admin-cd', parameters: [string(name: 'BUILDNUMBER', value: "${VERSION}")]) 
+                    sh "echo 'simulate updating source code by sotware developer'"                              
                 }
             }
         }
