@@ -42,7 +42,7 @@ pipeline {
             steps{
                 script{                      
                     build(job: 'bs4-admin-cd', parameters: [string(name: 'BUILDNUMBER', value: "${VERSION}")]) 
-                    sh "echo 'simulate updating source code by sotware developer'"                              
+                    sh "echo 'simulate updating source code by sotware developer #2'"                              
                 }
             }
         }
